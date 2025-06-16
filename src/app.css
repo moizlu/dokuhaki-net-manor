@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100..700&family=M+PLUS+1p&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import 'tailwindcss';
+
+@config '../tailwind.config.js';
+
+html {
+    scroll-behavior: smooth;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-primary: "M PLUS 1p", "monospace";
+
+    --color-light-side: var(--color-zinc-100);
+    --color-dark-side: var(--color-zinc-800);
+
+    --color-primary: light-dark(var(--color-light-side), var(--color-dark-side));
+    --color-accent: light-dark(var(--color-dark-side), var(--color-light-side));
+}
+
+@layer base {
+    h1 {
+        @apply font-bold m-3 text-center text-5xl;
+    }
+    h2 {
+        @apply font-bold m-3 text-center text-4xl;
+    }
+    h3 {
+        @apply font-bold m-3 text-center text-3xl;
+    }
+    h4 {
+        @apply font-bold m-3 text-center text-2xl;
+    }
+    p {
+        @apply text-lg;
+    }
+
+    article ul {
+        @apply list-disc ml-7
+    }
+
+    li {
+        @apply text-lg;
+    }
+
+    article a {
+        @apply m-0.5 p-0.5 border-accent border-1 hover:border-primary hover:border-1 hover:bg-accent hover:text-primary
+        transition-all duration-300;
+    }
+}
