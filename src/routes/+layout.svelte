@@ -33,6 +33,16 @@
 	}
 </script>
 
+<!-- OGP系の設定 -->
+<svelte:head>
+	<meta property="og:url" content="https://dokuhaki-net-manor.moizlu.com/" />
+	<meta property="og:type" content="profile" />
+	<meta property="og:title" content="毒吐きネットマナーミラー" />
+	<meta property="og:image" content="https://dokuhaki-net-manor.moizlu.com/ogp.png" />
+	<meta property="og:site_name" content="毒吐きネットマナーミラー" />
+	<meta property="og:description" content="毒吐きネットマナーのミラーサイトです。" />
+</svelte:head>
+
 <Header />
 <div>
 	{@render children()}
