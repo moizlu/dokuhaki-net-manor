@@ -21,19 +21,19 @@ html {
 
 @layer base {
     h1 {
-        @apply font-bold m-3 text-center text-5xl;
+        @apply font-bold m-3 text-center text-3xl sm:text-5xl;
     }
     h2 {
-        @apply font-bold m-3 text-center text-4xl;
+        @apply font-bold m-3 text-center text-2xl sm:text-4xl;
     }
     h3 {
-        @apply font-bold m-3 text-center text-3xl;
+        @apply font-bold m-3 text-center text-xl sm:text-3xl;
     }
     h4 {
-        @apply font-bold m-3 text-center text-2xl;
+        @apply font-bold m-3 text-center text-lg  sm:text-2xl;
     }
     p {
-        @apply text-lg;
+        @apply text-sm sm:text-lg;
     }
 
     article ul {
@@ -41,7 +41,7 @@ html {
     }
 
     li {
-        @apply text-lg;
+        @apply text-sm sm:text-lg;
     }
 
     article a {

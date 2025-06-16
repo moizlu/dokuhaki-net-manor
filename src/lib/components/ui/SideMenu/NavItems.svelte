@@ -75,7 +75,7 @@
 {/snippet}
 
 
-<div class={[className, "fixed top-0 flex flex-col gap-5 items-end justify-center"]}>
+<div class={[className, "fixed top-0 flex flex-col gap-0 items-end justify-center"]}>
     <ul class="flex flex-col gap-5 items-start justify-center">
         {#each navArticles as article}
             {@render navItem(article)}

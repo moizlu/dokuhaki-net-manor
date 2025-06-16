@@ -40,7 +40,7 @@
     <a {href} class="text-xl">{text}</a>
 {/snippet}
 
-<button {onclick} class="xl:hidden fixed top-0 right-0 m-5 z-100">
+<button {onclick} class="xl:hidden fixed top-0 right-0 m-5 z-2000">
     <div>
         <img src="/icons/light/hamburger-menu.svg" alt="menu" width={30} class="block dark:hidden">
         <img src="/icons/dark/hamburger-menu.svg" alt="menu" width={30} class="hidden dark:block">
