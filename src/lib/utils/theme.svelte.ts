@@ -39,20 +39,22 @@ export const getTheme = (): Theme => {
     }
 };
 
-export const setTheme = (t: SystemTheme) => {
-    if (!browser) { return; }
-
-    theme = t;
-    localStorage.setItem("theme", theme);
+const applyTheme = () => {
     document.body.classList.toggle("dark", getTheme() === "dark");
     document.body.style.colorScheme = getTheme();
     document.dispatchEvent(themeChange);
 };
 
+export const setTheme = (t: SystemTheme) => {
+    if (!browser) { return; }
+
+    theme = t;
+    localStorage.setItem("theme", theme);
+    applyTheme();
+};
+
 darkModeMediaQuery?.addEventListener('change', () => {
-    if (theme === "system") {
-        document.body.classList.toggle("dark", getTheme() === "dark");
-        document.body.style.colorScheme = getTheme();
-        document.dispatchEvent(themeChange);
-    }
+    if (theme !== "system") { return; }
+
+    applyTheme();
 });
