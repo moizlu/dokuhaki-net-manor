@@ -7,6 +7,7 @@
 
 	import { initTheme } from '$lib/utils/theme.svelte';
 
+	import SplashScreen from '$lib/components/parts/SplashScreen/SplashScreen.svelte';
 	import Header from '$lib/components/parts/Header/Header.svelte';
 	import Footer from '$lib/components/parts/Footer/Footer.svelte';
 
@@ -43,6 +44,7 @@
 	<meta property="og:description" content="毒吐きネットマナーのミラーサイトです。" />
 </svelte:head>
 
+<SplashScreen />
 <Header />
 <div>
 	{@render children()}

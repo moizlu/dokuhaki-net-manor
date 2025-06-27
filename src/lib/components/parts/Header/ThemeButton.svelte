@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Icon from '$lib/components/ui/Icon/Icon.svelte';
+
     import { getTheme, setTheme } from '$lib/utils/theme.svelte';
 
     const onclick = () => {
@@ -7,6 +9,5 @@
 </script>
 
 <button {onclick} class="" id="theme-button">
-    <img src="/icons/light/theme.svg" alt="theme" width={30} class="block dark:hidden m-5 drop-shadow-primary drop-shadow-md">
-    <img src="/icons/dark/theme.svg" alt="theme" width={30} class="hidden dark:block m-5 drop-shadow-primary drop-shadow-md">
+    <Icon lightSrc="/icons/light/theme.svg" darkSrc="/icons/dark/theme.svg" alt="theme" width={30} fetchpriority="low" class="m-5 drop-shadow-primary drop-shadow-md" />
 </button>
