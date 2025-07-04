@@ -1,11 +1,11 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { getAllArticles, type Article } from "$lib/articles";
+    import type { PageData } from "./$types";
 
-    let articles: Article[] = $state([]);
-    onMount(async () => {
-        articles = await getAllArticles();
-    });
+    import type { Article } from "$lib/articles";
+
+    const { data }: { data: PageData } = $props();
+
+    const { articles } = data;
 </script>
 
 {#each articles as article }

@@ -4,7 +4,9 @@
 	import { browser } from '$app/environment';
 	import { replaceState } from '$app/navigation';
 	import { page } from '$app/state';
+	import { onMount } from "svelte";
 
+	import { getAllArticles, type Article } from "$lib/articles";
 	import { initTheme } from '$lib/utils/theme.svelte';
 
 	import SplashScreen from '$lib/components/parts/SplashScreen/SplashScreen.svelte';
@@ -13,25 +15,17 @@
 
 	let { children } = $props();
 
-	// `#`のアンカータグの挙動を置き換える(フラグメント識別子を付けずに遷移する)
+	let isLoaded = $state(false);
+	let articles: Article[] = $state([]);
+
 	if (browser) { // ブラウザじゃないと`document`が使えない
-		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-			anchor.addEventListener('click', (e) => {
-				e.preventDefault();
-
-				const targetId = anchor.getAttribute('href')!.substring(1);
-				const targetElement = document.getElementById(targetId);
-
-				if (targetElement) {
-					targetElement.scrollIntoView();
-
-					replaceState(page.url, {});
-				}
-			});
-		});
-
 		initTheme();
 	}
+
+    onMount(async () => {
+        articles = await getAllArticles();
+		isLoaded = true;
+    });
 </script>
 
 <!-- OGP系の設定 -->
